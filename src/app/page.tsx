@@ -3,7 +3,7 @@ import './globals.css'; //
 import React, { useState } from 'react';
 import { Sidebar } from '../components/Sidebar';
 import { Header } from '../components/Header';
-import { Dashboard } from '../components/Dashboard';
+import Dashboard from '../components/Dashboard';
 import { Roster } from '../components/Roster';
 import { PartyBuilder } from '../components/PartyBuilder';
 

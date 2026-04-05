@@ -12,7 +12,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es">
-      <body>{children}</body>
+// src/app/layout.tsx
+<body className="min-h-full flex flex-col" suppressHydrationWarning>
+  {children}
+</body>
     </html>
   )
 }
