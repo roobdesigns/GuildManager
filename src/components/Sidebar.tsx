@@ -1,16 +1,33 @@
-export default function Sidebar() {
-  return (
-    <div style={{width:"220px",background:"#111",color:"white",height:"100vh",padding:"20px"}}>
-      <h2>Guild Manager</h2>
+"use client";
+import { LayoutDashboard, Users, UserPlus, Shield } from 'lucide-react';
 
-      <ul style={{listStyle:"none",padding:0}}>
-        <li>Dashboard</li>
-        <li>Roster</li>
-        <li>Party Builder</li>
-        <li>Raid Calendar</li>
-        <li>Loot</li>
-        <li>Wishlist</li>
-      </ul>
-    </div>
-  )
-}
+export const Sidebar = ({ activeTab, setActiveTab, isOpen }: any) => {
+  const menu = [
+    { id: 'dashboard', label: 'Dashboard', icon: <LayoutDashboard size={20}/> },
+    { id: 'roster', label: 'Roster', icon: <Users size={20}/> },
+    { id: 'party', label: 'Party Builder', icon: <UserPlus size={20}/> },
+  ];
+
+  return (
+    <aside className={`${isOpen ? 'w-64' : 'w-20'} bg-[#161926] border-r border-gray-800 transition-all duration-300 flex flex-col`}>
+      <div className="p-6 flex items-center gap-3">
+        <Shield className="text-indigo-500" />
+        {isOpen && <span className="font-bold text-xl uppercase italic">Exilio</span>}
+      </div>
+      <nav className="flex-1 px-4 space-y-2">
+        {menu.map((item) => (
+          <button
+            key={item.id}
+            onClick={() => setActiveTab(item.id)}
+            className={`w-full flex items-center gap-4 p-3 rounded-xl transition-colors ${
+              activeTab === item.id ? 'bg-indigo-600 text-white' : 'text-gray-400 hover:bg-gray-800'
+            }`}
+          >
+            {item.icon}
+            {isOpen && <span className="text-sm font-medium">{item.label}</span>}
+          </button>
+        ))}
+      </nav>
+    </aside>
+  );
+};
