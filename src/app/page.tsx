@@ -1,4 +1,5 @@
 "use client";
+import './globals.css'; //
 import React, { useState } from 'react';
 import { Sidebar } from '../components/Sidebar';
 import { Header } from '../components/Header';
@@ -11,7 +12,7 @@ export default function Home() {
   const [isSidebarOpen, setSidebarOpen] = useState(true);
 
   return (
-    <div className="flex h-screen bg-[#0f111a]">
+    <div className="flex h-screen bg-[#0f111a] text-white">
       <Sidebar 
         activeTab={activeTab} 
         setActiveTab={setActiveTab} 
